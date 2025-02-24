@@ -224,9 +224,9 @@ ASDCP::UMID::EncodeString(char* str_buf, ui32_t buf_len) const
 
   ui32_t offset = strlen(str_buf);
 
-  if ( ( m_Value[8] & 0x80 ) == 0 )
+  if ( ( m_Value[24] & 0x80 ) == 0 )
     {
-      // half-swapped UL, use [bbaa9988.ddcc.ffee.00010203.04050607]
+      // half-swapped UL, use [bbaa9988.ddcc.ffee.00010203.04050607] see ST 330
       snprintf(str_buf + offset, buf_len - offset,
 	       "[%02x%02x%02x%02x.%02x%02x%02x%02x.%02x%02x%02x%02x.%02x%02x%02x%02x]",
                m_Value[24], m_Value[25], m_Value[26], m_Value[27],
